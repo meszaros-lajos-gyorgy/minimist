@@ -4,3 +4,4 @@ test
 LICENSE
 readme.markdown
 .gitignore
+.nyc_output
