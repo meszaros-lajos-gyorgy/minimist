@@ -1,5 +1,5 @@
 {
-  "name": "minimist",
+  "name": "minimist-lite",
   "version": "1.2.5",
   "description": "parse argument options",
   "main": "index.js",
@@ -27,9 +27,9 @@
   },
   "repository": {
     "type": "git",
-    "url": "git://github.com/substack/minimist.git"
+    "url": "git://github.com/meszaros-lajos-gyorgy/minimist-lite"
   },
-  "homepage": "https://github.com/substack/minimist",
+  "homepage": "https://github.com/meszaros-lajos-gyorgy/minimist-lite",
   "keywords": [
     "argv",
     "getopt",
