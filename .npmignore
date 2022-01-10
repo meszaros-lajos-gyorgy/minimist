@@ -1,8 +1,6 @@
 example
 test
 .travis.yml
-LICENSE
-readme.markdown
 .gitignore
 .nyc_output
 .editorconfig
