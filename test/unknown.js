@@ -7,8 +7,8 @@ test('boolean and alias is not unknown', function (t) {
         unknown.push(arg);
         return false;
     }
-    var aliased = [ '-h', 'true', '--derp', 'true' ];
-    var regular = [ '--herp',  'true', '-d', 'true' ];
+    var aliased = ['-h', 'true', '--derp', 'true'];
+    var regular = ['--herp', 'true', '-d', 'true'];
     var opts = {
         alias: { h: 'herp' },
         boolean: 'h',
@@ -45,8 +45,8 @@ test('string and alias is not unknown', function (t) {
         unknown.push(arg);
         return false;
     }
-    var aliased = [ '-h', 'hello', '--derp', 'goodbye' ];
-    var regular = [ '--herp',  'hello', '-d', 'moon' ];
+    var aliased = ['-h', 'hello', '--derp', 'goodbye'];
+    var regular = ['--herp', 'hello', '-d', 'moon'];
     var opts = {
         alias: { h: 'herp' },
         string: 'h',
@@ -65,11 +65,11 @@ test('default and alias is not unknown', function (t) {
         unknown.push(arg);
         return false;
     }
-    var aliased = [ '-h', 'hello' ];
-    var regular = [ '--herp',  'hello' ];
+    var aliased = ['-h', 'hello'];
+    var regular = ['--herp', 'hello'];
     var opts = {
-        default: { 'h': 'bar' },
-        alias: { 'h': 'herp' },
+        default: { h: 'bar' },
+        alias: { h: 'herp' },
         unknown: unknownFn
     };
     var aliasedArgv = parse(aliased, opts);
@@ -86,7 +86,7 @@ test('value following -- is not unknown', function (t) {
         unknown.push(arg);
         return false;
     }
-    var aliased = [ '--bad', '--', 'good', 'arg' ];
+    var aliased = ['--bad', '--', 'good', 'arg'];
     var opts = {
         '--': true,
         unknown: unknownFn
@@ -96,7 +96,7 @@ test('value following -- is not unknown', function (t) {
     t.same(unknown, ['--bad']);
     t.same(argv, {
         '--': ['good', 'arg'],
-        '_': []
-    })
+        _: []
+    });
     t.end();
 });

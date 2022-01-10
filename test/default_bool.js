@@ -31,5 +31,4 @@ test('boolean default to null', function (t) {
     });
     t.equal(argv.maybe, true);
     t.end();
-
-})
+});
