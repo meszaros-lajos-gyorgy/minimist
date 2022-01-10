@@ -6,3 +6,4 @@ readme.markdown
 .gitignore
 .nyc_output
 .editorconfig
+.prettierrc
