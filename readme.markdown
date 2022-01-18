@@ -40,7 +40,7 @@ $ node example/parse.js -a beep -b boop
 ```
 
 ```
-$ node example/parse.js -x 3 -y 4 -n5 -abc --beep=boop foo bar baz
+$ node example/parse.js -x 3 -y 4 -n5 -abc --beep=boop --hoo:haa foo bar baz
 { _: [ 'foo', 'bar', 'baz' ],
   x: 3,
   y: 4,
@@ -48,6 +48,7 @@ $ node example/parse.js -x 3 -y 4 -n5 -abc --beep=boop foo bar baz
   a: true,
   b: true,
   c: true,
+  hoo: [haa],
   beep: 'boop' }
 ```
 
@@ -80,6 +81,8 @@ options can be:
 
 - `opts.string` - a string or array of strings argument names to always treat as
   strings
+- `opts.array` - a string or array of strings argument names to always treat as
+  array values
 - `opts.boolean` - a boolean, string or array of strings to always treat as
   booleans. if `true` will treat all double hyphenated arguments without equal signs
   as boolean (e.g. affects `--foo`, not `-f` or `--foo=bar`)
