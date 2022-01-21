@@ -19,6 +19,7 @@ test('comprehensive', function (t) {
             '-h', 'awesome', '--multi=quux',
             '--key', 'value',
             '-b', '--bool', '--no-meep', '--multi=baz',
+            '--arr:me',
             '--', '--not-a-flag', 'eek'
         ]),
         {
@@ -33,6 +34,7 @@ test('comprehensive', function (t) {
             multi: ['quux', 'baz'],
             meep: false,
             name: 'meowmers',
+            arr: ['me'],
             _: ['bare', '--not-a-flag', 'eek']
         }
     );
