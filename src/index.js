@@ -1,6 +1,19 @@
+const unflatten = require('flat').unflatten;
+const flatten = require('flat');
+
+function isNumber(x) {
+    if (typeof x === 'number') return true;
+    if (/^0x[0-9a-f]+$/i.test(x)) {
+        try {
+            return Number(x) <= Number.MAX_SAFE_INTEGER;
+        } catch {
+            return false;
+        }
+    }
+    return /^[-+]?(?:\d+(?:\.\d*)?|\.\d+)(e[-+]?\d+)?$/.test(x);
+}
+
 module.exports = function (args, opts) {
-    var unflatten = require('flat').unflatten;
-    var flatten = require('flat');
     if (!opts) opts = {};
 
     var flags = {
@@ -257,15 +270,3 @@ module.exports = function (args, opts) {
 
     return unflatten(argv);
 };
-
-function isNumber(x) {
-    if (typeof x === 'number') return true;
-    if (/^0x[0-9a-f]+$/i.test(x)) {
-        try {
-            return Number(x) <= Number.MAX_SAFE_INTEGER;
-        } catch {
-            return false;
-        }
-    }
-    return /^[-+]?(?:\d+(?:\.\d*)?|\.\d+)(e[-+]?\d+)?$/.test(x);
-}
