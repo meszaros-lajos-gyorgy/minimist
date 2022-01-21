@@ -1,54 +1,54 @@
 {
-  "name": "minimist-lite",
-  "version": "2.0.1",
-  "description": "parse argument options",
-  "main": "main.js",
-  "types": "index.d.ts",
-  "devDependencies": {
-    "covert": "^1.1.1",
-    "esbuild": "^0.14.11",
-    "flat": "^5.0.2",
-    "tap": "~15.1.6",
-    "tape": "^5.4.1"
-  },
-  "scripts": {
-    "test": "tap test/*.js",
-    "coverage": "covert test/*.js",
-    "build": "esbuild index.js --bundle --minify --outfile=main.js --format=cjs"
-  },
-  "testling": {
-    "files": "test/*.js",
-    "browsers": [
-      "ie/6..latest",
-      "ff/5",
-      "firefox/latest",
-      "chrome/10",
-      "chrome/latest",
-      "safari/5.1",
-      "safari/latest",
-      "opera/12"
+    "name": "minimist-lite",
+    "version": "2.0.1",
+    "description": "parse argument options",
+    "main": "main.js",
+    "types": "index.d.ts",
+    "devDependencies": {
+        "covert": "^1.1.1",
+        "esbuild": "^0.14.11",
+        "flat": "^5.0.2",
+        "tap": "~15.1.6",
+        "tape": "^5.4.1"
+    },
+    "scripts": {
+        "build": "esbuild index.js --bundle --minify --outfile=main.js --format=cjs",
+        "test": "tap test/*.js",
+        "coverage": "covert test/*.js"
+    },
+    "testling": {
+        "files": "test/*.js",
+        "browsers": [
+            "ie/6..latest",
+            "ff/5",
+            "firefox/latest",
+            "chrome/10",
+            "chrome/latest",
+            "safari/5.1",
+            "safari/latest",
+            "opera/12"
+        ]
+    },
+    "repository": {
+        "type": "git",
+        "url": "git://github.com/meszaros-lajos-gyorgy/minimist-lite"
+    },
+    "homepage": "https://github.com/meszaros-lajos-gyorgy/minimist-lite",
+    "keywords": [
+        "argv",
+        "getopt",
+        "parser",
+        "optimist"
+    ],
+    "author": {
+        "name": "James Halliday",
+        "email": "mail@substack.net",
+        "url": "http://substack.net"
+    },
+    "license": "MIT",
+    "files": [
+        "index.js",
+        "readme.markdown",
+        "LICENSE"
     ]
-  },
-  "repository": {
-    "type": "git",
-    "url": "git://github.com/meszaros-lajos-gyorgy/minimist-lite"
-  },
-  "homepage": "https://github.com/meszaros-lajos-gyorgy/minimist-lite",
-  "keywords": [
-    "argv",
-    "getopt",
-    "parser",
-    "optimist"
-  ],
-  "author": {
-    "name": "James Halliday",
-    "email": "mail@substack.net",
-    "url": "http://substack.net"
-  },
-  "license": "MIT",
-  "files": [
-    "index.js",
-    "readme.markdown",
-    "LICENSE"
-  ]
 }

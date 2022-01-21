@@ -67,7 +67,7 @@ module.exports = function (args, opts) {
 
     var notFlags = [];
 
-    if (args.indexOf('--') !== -1) {
+    if (!opts.stopEarly && args.indexOf('--') !== -1) {
         notFlags = args.slice(args.indexOf('--') + 1);
         args = args.slice(0, args.indexOf('--'));
     }
@@ -257,8 +257,6 @@ module.exports = function (args, opts) {
 
     return unflatten(argv);
 };
-
-
 
 function isNumber(x) {
     if (typeof x === 'number') return true;
