@@ -2,42 +2,118 @@
 
 parse argument options
 
-This module is the guts of optimist's argument parser without all the
-fanciful decoration.
+This module is the guts of [optimist](https://www.npmjs.com/package/optimist)'s
+argument parser without all the fanciful decoration.
 
-Original package: https://github.com/substack/minimist
+---
 
-This repo is to keep the minimist package alive and up to date.
+This repo is to keep the seemingly abandoned [minimist](https://github.com/substack/minimist) package alive and up to date.
 
 All credits go to James Halliday
 
 ---
 
-# install
+## Installation
 
 With [npm](https://npmjs.org) do:
 
-`npm install minimist-lite`
+```sh
+npm install minimist-lite
+```
 
 With [yarn](https://yarnpkg.com/) do:
 
-`yarn add minimist-lite`
+```sh
+yarn add minimist-lite
+```
 
-# license
+## License
 
-MIT
+MIT License. See [LICENSE](LICENSE) for details.
 
-# example
+## Examples
+
+See [example/parse.js](example/parse.js):
 
 ```js
-var argv = require("minimist-lite")(process.argv.slice(2));
+var argv = require('minimist-lite')(process.argv.slice(2));
+
 console.log(argv);
 ```
+
+Running `node example/parse.js` with arguments shows how they are parsed
+by minimist:
+
+### No arguments
+
+With no arguments minimist returns an object with a single key "\_" (underscore)
+with a value of an empty array:
+
+```
+$ node example/parse.js
+{ _: [] }
+```
+
+### Arguments without dashes
+
+Using arguments with no dashes adds them to the "\_" array in the object
+returned by minimist:
+
+```
+$ node example/parse.js abc def
+{ _: [ 'abc', 'def' ] }
+```
+
+### Single-letter options
+
+A single dash starts a single-letter option that are boolean by default:
+
+```
+$ node example/parse.js -a -b -c
+{ _: [], a: true, b: true, c: true }
+```
+
+Single-letter options can be joined together:
+
+```
+$ node example/parse.js -abc
+{ _: [], a: true, b: true, c: true }
+```
+
+When a single-letter option is followed by a value with no dashes, the option
+gets that value in the returned object instead of a boolean value:
 
 ```
 $ node example/parse.js -a beep -b boop
 { _: [], a: 'beep', b: 'boop' }
 ```
+
+Numeric values can be joined with single-letter options:
+
+```
+$ node example/parse.js -a 1 -b2
+{ _: [], a: 1, b: 2 }
+```
+
+### Multi-letter options
+
+Multi-letter options start with double dashes and they are boolean by default:
+
+```
+$ node example/parse.js --abc --def
+{ _: [], abc: true, def: true }
+```
+
+Values can follow multi-letter options after a space or equal sign:
+
+```
+$ node example/parse.js --abc 1 --def=2
+{ _: [], abc: 1, def: 2 }
+```
+
+### Mixed styles
+
+All of those styles can be used together:
 
 ```
 $ node example/parse.js -x 3 -y 4 -n5 -abc --beep=boop --hoo:haa foo bar baz
@@ -52,17 +128,25 @@ $ node example/parse.js -x 3 -y 4 -n5 -abc --beep=boop --hoo:haa foo bar baz
   beep: 'boop' }
 ```
 
-# security
+The default parsing of the arguments can be changed by using the second
+argument to the parsing method, see below.
 
-Previous versions had a prototype pollution bug that could cause privilege
-escalation in some circumstances when handling untrusted user input.
+### Repeated options
 
-Please use version 1.2.3 or later: https://snyk.io/vuln/SNYK-JS-MINIMIST-559764
+If an option is provided more than once, the returned object value for that
+option will be an array (rather than a boolean or a string):
 
-# methods
+```
+$ node example/parse.js --foo=bar --foo=baz
+{ _: [], foo: [ 'bar', 'baz' ] }
+```
+
+## Methods
+
+Minimist exports a single method:
 
 ```js
-var parseArgs = require("minimist-lite");
+var parseArgs = require('minimist-lite');
 ```
 
 ## var argv = parseArgs(args, opts={})
@@ -70,17 +154,19 @@ var parseArgs = require("minimist-lite");
 Return an argument object `argv` populated with the array arguments from `args`.
 
 `argv._` contains all the arguments that didn't have an option associated with
-them.
+them, or an empty array if there were no such arguments.
 
 Numeric-looking arguments will be returned as numbers unless `opts.string` or
 `opts.boolean` is set for that argument name.
 
 Any arguments after `'--'` will not be parsed and will end up in `argv._`.
 
+## Options
+
 options can be:
 
-- `opts.string` - a string or array of strings argument names to always treat as
-  strings
+- `opts.string` - a string or array of strings with argument names to always
+  treat as strings
 - `opts.array` - a string or array of strings argument names to always treat as
   array values
 - `opts.boolean` - a boolean, string or array of strings to always treat as
