@@ -1,17 +1,6 @@
 const unflatten = require('flat').unflatten;
 const flatten = require('flat');
-
-function isNumber(x) {
-    if (typeof x === 'number') return true;
-    if (/^0x[0-9a-f]+$/i.test(x)) {
-        try {
-            return Number(x) <= Number.MAX_SAFE_INTEGER;
-        } catch {
-            return false;
-        }
-    }
-    return /^[-+]?(?:\d+(?:\.\d*)?|\.\d+)(e[-+]?\d+)?$/.test(x);
-}
+const { isNumber } = require('./functions.js');
 
 module.exports = function (args, opts) {
     if (!opts) opts = {};
