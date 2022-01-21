@@ -2,7 +2,7 @@
     "name": "minimist-lite",
     "version": "2.1.0-beta.0",
     "description": "parse argument options",
-    "main": "main.js",
+    "main": "index.js",
     "types": "index.d.ts",
     "devDependencies": {
         "covert": "^1.1.1",
@@ -12,7 +12,7 @@
         "tape": "^5.4.1"
     },
     "scripts": {
-        "build": "esbuild index.js --bundle --minify --outfile=main.js --format=cjs",
+        "build": "esbuild src/index.js --bundle --minify --outfile=index.js --format=cjs",
         "test": "tap test/*.js",
         "coverage": "covert test/*.js"
     },

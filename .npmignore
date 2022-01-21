@@ -5,3 +5,4 @@ test
 .nyc_output
 .editorconfig
 .prettierrc
+src

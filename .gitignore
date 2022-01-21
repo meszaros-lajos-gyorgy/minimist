@@ -1,4 +1,4 @@
 node_modules
 .nyc_output
-main.js.map
+index.js.map
 pnpm-lock.yaml
