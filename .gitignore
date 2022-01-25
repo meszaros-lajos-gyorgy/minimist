@@ -1,7 +1,8 @@
-pnpm-lock.yaml
-
-## source maps
+## bundle-related files
+index.js
 *.js.map
+
+pnpm-lock.yaml
 
 # Created by https://www.toptal.com/developers/gitignore/api/node,linux,windows,macos,vim,visualstudiocode,emacs
 # Edit at https://www.toptal.com/developers/gitignore?templates=node,linux,windows,macos,vim,visualstudiocode,emacs
