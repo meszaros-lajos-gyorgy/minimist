@@ -2,26 +2,26 @@ var parse = require('../');
 var test = require('tape');
 
 test('stops parsing on the first non-option when stopEarly is set', function (t) {
-    var argv = parse(['--aaa', 'bbb', 'ccc', '--ddd'], {
-        stopEarly: true
-    });
+  var argv = parse(['--aaa', 'bbb', 'ccc', '--ddd'], {
+    stopEarly: true,
+  });
 
-    t.deepEqual(argv, {
-        aaa: 'bbb',
-        _: ['ccc', '--ddd']
-    });
+  t.deepEqual(argv, {
+    aaa: 'bbb',
+    _: ['ccc', '--ddd'],
+  });
 
-    t.end();
+  t.end();
 });
 
 test('includes -- with stop early', function (t) {
-    var argv = parse(['aaa', '--bbb', '--', 'ccc'], {
-        stopEarly: true
-    });
+  var argv = parse(['aaa', '--bbb', '--', 'ccc'], {
+    stopEarly: true,
+  });
 
-    t.deepEqual(argv, {
-        _: ['aaa', '--bbb', '--', 'ccc']
-    });
+  t.deepEqual(argv, {
+    _: ['aaa', '--bbb', '--', 'ccc'],
+  });
 
-    t.end();
+  t.end();
 });
