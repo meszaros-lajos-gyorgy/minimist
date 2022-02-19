@@ -5,7 +5,6 @@
     "main": "index.js",
     "types": "index.d.ts",
     "devDependencies": {
-        "covert": "^1.1.1",
         "esbuild": "^0.14.23",
         "flat": "^5.0.2",
         "tap": "~15.1.6",
@@ -13,8 +12,7 @@
     },
     "scripts": {
         "build": "esbuild src/index.js --sourcemap --bundle --minify --outfile=index.js --format=cjs",
-        "test": "tap test/*.js",
-        "coverage": "covert test/*.js"
+        "test": "tap test/*.js"
     },
     "repository": {
         "type": "git",
