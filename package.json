@@ -12,7 +12,7 @@
     },
     "scripts": {
         "build": "esbuild src/index.js --sourcemap --bundle --minify --outfile=index.js --format=cjs",
-        "test": "tap test/*.js"
+        "test": "tap --reporter=base --coverage-report=html test/*.js"
     },
     "repository": {
         "type": "git",
