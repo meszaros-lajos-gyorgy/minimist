@@ -1,4 +1,4 @@
-# minimist-lite
+# minimist-lite [![npm bundle size](https://badgen.net/bundlephobia/minzip/minimist-lite?style=flat-square)](https://www.npmjs.com/package/minimist-lite) [![package dependency count](https://badgen.net/bundlephobia/dependency-count/minimist-lite?style=flat-square)](https://www.npmjs.com/package/minimist-lite)
 
 parse argument options
 
