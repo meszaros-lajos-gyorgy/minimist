@@ -1,0 +1,61 @@
+##
+## Continuous Integration
+##
+## This was intended to run for pull requests that touches `package.json` or
+## the lockfile or any file under `src` directory when using the main branch as
+## the base.
+## Will skip pull requests that starts with "[WIP]" in their title or the ones
+## that are merged already.
+## This workflow aims to detect building errors, test and code coverage failures
+## on pull request's changes.
+##
+
+name: CI - build and test
+
+on:
+  pull_request:
+    branches:
+      - master
+    types: [opened, synchronize, reopened]
+    paths:
+      - 'src/**/*'
+      - 'package*.json'
+
+jobs:
+  automated_tests:
+    name: 'Run tests on ${{ matrix.os }}'
+    timeout-minutes: 10
+    runs-on: ${{ matrix.os }}
+    strategy:
+      matrix:
+        os: [macos-latest, ubuntu-latest, windows-latest]
+    if: >-
+      !startsWith(github.event.pull_request.title, '[WIP]') &&
+      github.event.pull_request.merged == false
+    env:
+      NODE_ENV: 'test'
+    steps:
+      ##########################################################################
+      ######################### Prepare the environment ########################
+      ##########################################################################
+      - name: Checkout the repository
+        uses: actions/checkout@v2
+      - name: Use LTS version of Node.js
+        uses: actions/setup-node@v2
+        with:
+          node-version: 'lts/*'
+          cache: 'npm'
+      - name: Install all dependencies
+        run: npm ci --also=dev
+      ##########################################################################
+      - name: Build the project
+        run: npm run build
+      - name: Run tests
+        run: npm run test
+      - name: Upload HTML coverage report
+        if: always()
+        uses: actions/upload-artifact@v2
+        with:
+          name: 'lcov-report-${{ github.event.pull_request.number }}--${{ github.event.pull_request.head.sha }}'
+          if-no-files-found: error
+          path: './coverage/lcov-report'

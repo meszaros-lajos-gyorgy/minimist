@@ -1,0 +1,39 @@
+##
+## Release
+##
+## This was intended to run for pushes of Git tags that starts with 'v'.
+## This workflows aims to detect building errors and, if there are none,
+## publishes a new version of the package.
+##
+
+name: Publish to NPM
+
+on:
+  push:
+    tags:
+      - 'v*' ## The tag name e.g.: v1.2.3
+
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      ##########################################################################
+      ######################### Prepare the environment ########################
+      ##########################################################################
+      - name: Checkout the repository
+        uses: actions/checkout@v2
+      - name: Use node16
+        uses: actions/setup-node@v2
+        with:
+          node-version: '16.x'
+          registry-url: 'https://registry.npmjs.org'
+      - name: Install all dependencies
+        run: npm ci --also=dev
+      ##########################################################################
+      - name: Build the project
+        run: npm run build
+      - name: Publish the package
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
+        run: npm --access=public publish
