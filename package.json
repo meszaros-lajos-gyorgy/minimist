@@ -1,41 +1,43 @@
 {
-    "name": "minimist-lite",
-    "version": "2.2.0",
-    "description": "parse argument options",
-    "main": "index.js",
-    "types": "index.d.ts",
-    "devDependencies": {
-        "esbuild": "^0.14.23",
-        "flat": "^5.0.2",
-        "tap": "~15.1.6",
-        "tape": "^5.5.2"
-    },
-    "scripts": {
-        "build": "esbuild src/index.js --sourcemap --bundle --minify --outfile=index.js --format=cjs",
-        "test": "tap --reporter=base --coverage-report=html test/*.js"
-    },
-    "repository": {
-        "type": "git",
-        "url": "git://github.com/meszaros-lajos-gyorgy/minimist-lite"
-    },
-    "homepage": "https://github.com/meszaros-lajos-gyorgy/minimist-lite",
-    "keywords": [
-        "argv",
-        "getopt",
-        "parser",
-        "optimist"
-    ],
-    "author": {
-        "name": "James Halliday",
-        "email": "mail@substack.net",
-        "url": "http://substack.net"
-    },
-    "license": "MIT",
-    "files": [
-        "index.js",
-        "index.js.map",
-        "index.d.ts",
-        "readme.markdown",
-        "LICENSE"
-    ]
+  "name": "minimist-lite",
+  "version": "2.2.0",
+  "description": "parse argument options",
+  "main": "index.js",
+  "types": "index.d.ts",
+  "devDependencies": {
+    "esbuild": "^0.14.23",
+    "flat": "^5.0.2",
+    "prettier": "^2.5.1",
+    "tap": "~15.1.6",
+    "tape": "^5.5.2"
+  },
+  "scripts": {
+    "format:fix": "prettier --write package.json *.markdown src/** test/**",
+    "build": "esbuild src/index.js --sourcemap --bundle --minify --outfile=index.js --format=cjs",
+    "test": "tap --reporter=base --coverage-report=html test/*.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/meszaros-lajos-gyorgy/minimist-lite"
+  },
+  "homepage": "https://github.com/meszaros-lajos-gyorgy/minimist-lite",
+  "keywords": [
+    "argv",
+    "getopt",
+    "parser",
+    "optimist"
+  ],
+  "author": {
+    "name": "James Halliday",
+    "email": "mail@substack.net",
+    "url": "http://substack.net"
+  },
+  "license": "MIT",
+  "files": [
+    "index.js",
+    "index.js.map",
+    "index.d.ts",
+    "readme.markdown",
+    "LICENSE"
+  ]
 }
