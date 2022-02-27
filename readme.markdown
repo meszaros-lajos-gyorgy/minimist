@@ -1,4 +1,4 @@
-# minimist-lite
+# minimist-lite [![npm bundle size](https://badgen.net/bundlephobia/minzip/minimist-lite?style=flat-square)](https://www.npmjs.com/package/minimist-lite) [![package dependency count](https://badgen.net/bundlephobia/dependency-count/minimist-lite?style=flat-square)](https://www.npmjs.com/package/minimist-lite)
 
 parse argument options
 
@@ -109,6 +109,18 @@ Values can follow multi-letter options after a space or equal sign:
 ```
 $ node example/parse.js --abc 1 --def=2
 { _: [], abc: 1, def: 2 }
+```
+
+#### `--no-` prefix handling
+
+Options with the prefix `--no-` will be treated as a flag that has the value `false` by default:
+
+```
+$ node example/parse.js --no-abc
+{ _: [], abc: false }
+
+$ node example/parse.js --no-abc true
+{ _: ['true'], abc: false }
 ```
 
 ### Mixed styles
