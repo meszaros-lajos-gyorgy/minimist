@@ -42,3 +42,21 @@ test('proto pollution (constructor)', function (t) {
   t.equal(argv.y, undefined);
   t.end();
 });
+
+// see https://github.com/substack/minimist/issues/164
+// and https://github.com/substack/minimist/pull/165/files#diff-4cc5d5898df211eda3245f8eece37a4f58b3d2da766fd611f25cf0e164b0f2bf
+test('proto pollution (constructor function)', function (t) {
+    var argv = parse(['--_.concat.constructor.prototype.y', '123']);
+    function fnToBeTested() {}
+    t.equal(fnToBeTested.y, undefined);
+    t.equal(argv.y, undefined);
+    t.end();
+});
+
+// powered by snyk - https://github.com/backstage/backstage/issues/10343
+test('proto pollution (constructor function) snyk', function (t) {
+    var argv = parse('--_.constructor.constructor.prototype.foo bar'.split(' '));
+    t.equal((function(){}).foo, undefined);
+    t.equal(argv.y, undefined);
+    t.end();
+});
