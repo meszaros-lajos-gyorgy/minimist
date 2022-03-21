@@ -5,10 +5,10 @@
   "main": "index.js",
   "types": "index.d.ts",
   "devDependencies": {
-    "esbuild": "^0.14.23",
+    "esbuild": "^0.14.27",
     "flat": "^5.0.2",
-    "prettier": "^2.5.1",
-    "tap": "~15.1.6",
+    "prettier": "^2.6.0",
+    "tap": "~16.0.0",
     "tape": "^5.5.2"
   },
   "scripts": {
