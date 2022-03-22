@@ -12,6 +12,7 @@
     "tape": "^5.5.2"
   },
   "scripts": {
+    "prepare": "npm run build",
     "format:fix": "prettier --write package.json *.markdown src/** test/** **/*.yml",
     "build": "esbuild src/index.js --sourcemap --bundle --minify --outfile=index.js --format=cjs",
     "test": "tap --reporter=base --coverage-report=html test/*.js"
