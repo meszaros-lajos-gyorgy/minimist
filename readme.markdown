@@ -1,4 +1,4 @@
-# minimist-lite [![npm bundle size](https://badgen.net/bundlephobia/minzip/minimist-lite?style=flat-square)](https://www.npmjs.com/package/minimist-lite) [![package dependency count](https://badgen.net/bundlephobia/dependency-count/minimist-lite?style=flat-square)](https://www.npmjs.com/package/minimist-lite)
+# minimist-lite [![npm bundle size](https://badgen.net/bundlephobia/minzip/minimist-lite?style=flat-square)](https://www.npmjs.com/package/minimist-lite) [![package dependency count](https://badgen.net/bundlephobia/dependency-count/minimist-lite?style=flat-square)](https://www.npmjs.com/package/minimist-lite) [![Known Vulnerabilities](https://snyk.io/test/npm/minimist-lite/badge.svg?style=flat-square)](https://snyk.io/test/npm/minimist-lite)
 
 parse argument options
 
