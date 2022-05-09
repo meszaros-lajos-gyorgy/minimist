@@ -51,7 +51,7 @@ jobs:
       - name: Build the project
         run: npm run build
       - name: Run tests
-        run: npm run test
+        run: npm run test -- --no-browser
       - name: Upload HTML coverage report
         if: always()
         uses: actions/upload-artifact@v2
