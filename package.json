@@ -5,11 +5,11 @@
   "main": "index.js",
   "types": "index.d.ts",
   "devDependencies": {
-    "esbuild": "^0.14.27",
+    "esbuild": "^0.14.39",
     "flat": "^5.0.2",
-    "prettier": "^2.6.0",
-    "tap": "~16.0.0",
-    "tape": "^5.5.2"
+    "prettier": "^2.6.2",
+    "tap": "~16.2.0",
+    "tape": "^5.5.3"
   },
   "scripts": {
     "prepare": "npm run build",
