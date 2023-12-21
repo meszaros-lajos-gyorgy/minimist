@@ -7,9 +7,13 @@ argument parser without all the fanciful decoration.
 
 ---
 
-This repo is to keep the seemingly abandoned [minimist](https://github.com/substack/minimist) package alive and up to date.
+## The original minimist repo have been picked up by devs and is now available again under the original name:
+https://github.com/minimistjs/minimist
 
-All credits go to James Halliday
+Please use that package instead of this, as minimist-lite will only get security updates in the future, no further
+development is to be expected!
+
+more info here: https://github.com/meszaros-lajos-gyorgy/minimist-lite/issues/27
 
 ---
 
