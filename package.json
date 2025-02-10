@@ -15,7 +15,7 @@
     "prepare": "npm run build",
     "format:fix": "prettier --write package.json *.markdown src/** test/** **/*.yml",
     "build": "esbuild src/index.js --sourcemap --bundle --minify --outfile=index.js --format=cjs",
-    "test": "tap --reporter=base --coverage-report=html test/*.js"
+    "test": "tap --reporter=base --branches=95 --functions=90 --lines=95 --statements=95 --coverage-report=html test/*.js"
   },
   "repository": {
     "type": "git",
