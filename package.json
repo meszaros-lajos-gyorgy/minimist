@@ -1,6 +1,6 @@
 {
   "name": "minimist-lite",
-  "version": "2.2.1",
+  "version": "2.3.0",
   "description": "parse argument options",
   "main": "index.js",
   "types": "index.d.ts",
